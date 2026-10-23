@@ -4,209 +4,610 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Soumish Biswas, B.Tech Computer Science student interested in AI, Machine Learning and software development.">
-  <title>Soumish Biswas | CSE Student</title>
+
+  <title>Soumish Biswas | Developer Portfolio</title>
+  <meta name="description" content="Soumish Biswas is a Computer Science student exploring programming, artificial intelligence, machine learning and software development.">
+  <meta name="author" content="Soumish Biswas">
+  <meta name="theme-color" content="#080b18">
+  <meta property="og:title" content="Soumish Biswas | Developer Portfolio">
+  <meta property="og:description" content="Explore my skills, projects and journey in Computer Science.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root {
+      --bg: #080b18;
+      --surface: #10162a;
+      --surface2: #141c34;
+      --text: #edf1ff;
+      --muted: #9ba7c5;
+      --purple: #9b7bff;
+      --blue: #59a9ff;
+      --border: rgba(180,195,255,.13);
     }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 85px; }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #f7f8fa;
-      color: #202938;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
       line-height: 1.7;
+      overflow-x: hidden;
     }
 
-    header {
-      padding: 22px 8%;
-      background: white;
-      border-bottom: 1px solid #e5e7eb;
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 15% 15%, rgba(111,65,220,.14), transparent 40%),
+        radial-gradient(ellipse at 90% 35%, rgba(43,123,255,.10), transparent 35%);
     }
 
-    nav {
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .container { width: min(1100px, 90%); margin: auto; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8,11,24,.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      min-height: 72px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
     }
 
-    nav strong {
-      font-size: 20px;
+    .logo {
+      font: 700 1.15rem "Space Grotesk", sans-serif;
+      letter-spacing: -.5px;
     }
 
-    nav a {
-      color: #334155;
-      text-decoration: none;
-      margin-left: 14px;
-      font-size: 14px;
+    .logo span { color: var(--purple); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      font-size: .88rem;
+      color: var(--muted);
     }
 
-    main {
-      max-width: 900px;
-      margin: auto;
-      padding: 75px 24px;
+    .nav-links a:hover { color: white; }
+
+    .menu-btn {
+      display: none;
+      border: 1px solid var(--border);
+      color: white;
+      background: var(--surface);
+      border-radius: 9px;
+      padding: 7px 11px;
+      cursor: pointer;
     }
 
-    .intro {
-      padding: 45px 0;
+    .hero {
+      min-height: 78vh;
+      display: grid;
+      grid-template-columns: 1.35fr .65fr;
+      align-items: center;
+      gap: 55px;
+      padding-top: 65px;
+      padding-bottom: 80px;
     }
 
-    .tag {
-      color: #2563eb;
-      font-weight: bold;
-      font-size: 13px;
-      letter-spacing: 1px;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: #c4b5ff;
+      border: 1px solid rgba(155,123,255,.28);
+      background: rgba(155,123,255,.08);
+      padding: 7px 13px;
+      border-radius: 30px;
+      font-size: .83rem;
+      margin-bottom: 24px;
     }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      background: #70e5ad;
+      border-radius: 50%;
+      box-shadow: 0 0 12px #70e5ad;
+    }
+
+    h1, h2, h3 { font-family: "Space Grotesk", sans-serif; }
 
     h1 {
-      font-size: clamp(38px, 8vw, 58px);
-      line-height: 1.15;
-      margin: 15px 0;
-      letter-spacing: -1.5px;
+      font-size: clamp(2.8rem, 6.5vw, 5rem);
+      line-height: 1.08;
+      letter-spacing: -3px;
+      margin-bottom: 22px;
+    }
+
+    .gradient {
+      background: linear-gradient(100deg, #b8a3ff, #69b5ff);
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .hero p, .section-desc {
+      color: var(--muted);
+      max-width: 590px;
+      font-size: 1.03rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 19px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: .92rem;
+      transition: transform .25s, border-color .25s, background .25s;
+    }
+
+    .btn:hover { transform: translateY(-3px); }
+
+    .btn-primary {
+      color: white;
+      border: none;
+      background: linear-gradient(110deg, #7955df, #397ee8);
+      box-shadow: 0 8px 30px rgba(94,90,220,.23);
+    }
+
+    .btn-secondary { background: rgba(255,255,255,.025); }
+    .btn-secondary:hover { border-color: var(--purple); }
+
+    .profile-wrap {
+      position: relative;
+      width: min(300px, 100%);
+      justify-self: center;
+    }
+
+    .profile-glow {
+      position: absolute;
+      inset: 8%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #8058ff, #368fff);
+      filter: blur(45px);
+      opacity: .35;
+    }
+
+    .profile-frame {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      border-radius: 30px;
+      padding: 7px;
+      background: linear-gradient(145deg, #a58aff, #3b8bff, #222b50);
+      transform: rotate(2deg);
+      transition: transform .35s;
+    }
+
+    .profile-frame:hover { transform: rotate(0deg) translateY(-5px); }
+
+    .profile-inner {
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 24px;
+      background: linear-gradient(145deg, #1d2542, #101426);
+    }
+
+    .profile-inner img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .avatar-fallback {
+      height: 100%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background: radial-gradient(circle at top, #303b6d, #101426 72%);
+    }
+
+    .avatar-fallback strong {
+      font: 700 4.5rem "Space Grotesk", sans-serif;
+      color: #c8baff;
+    }
+
+    .avatar-fallback span { color: var(--muted); font-size: .85rem; }
+
+    section { padding: 85px 0; }
+
+    .section-head { margin-bottom: 32px; }
+
+    .section-tag {
+      color: var(--purple);
+      font-size: .82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
     h2 {
-      font-size: 25px;
-      margin-bottom: 14px;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.2;
+      letter-spacing: -1px;
+      margin: 9px 0 12px;
     }
 
-    .subtitle {
-      color: #475569;
-      font-size: 19px;
-      margin-bottom: 16px;
+    .about-card, .card, .contact-card {
+      background: linear-gradient(145deg, rgba(20,28,52,.85), rgba(13,18,35,.9));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 27px;
     }
 
-    p {
-      color: #596579;
-      margin-bottom: 16px;
+    .about-card p { color: var(--muted); margin-top: 10px; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 23px; }
+
+    .chip {
+      font-size: .85rem;
+      color: #c8d5f4;
+      background: rgba(125,145,205,.08);
+      border: 1px solid var(--border);
+      padding: 7px 12px;
+      border-radius: 8px;
     }
 
-    .button {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 11px 20px;
-      background: #1d4ed8;
-      color: white;
-      text-decoration: none;
-      border-radius: 7px;
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+
+    .card {
+      transition: transform .25s, border-color .25s;
     }
 
-    section {
-      padding: 32px 0;
-      border-top: 1px solid #e5e7eb;
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(155,123,255,.5);
     }
 
-    .skills {
+    .card-icon {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(155,123,255,.13);
+      color: #c2b0ff;
+      font-size: 1.3rem;
+      margin-bottom: 18px;
+    }
+
+    .card h3 { font-size: 1.1rem; margin-bottom: 9px; }
+    .card p { color: var(--muted); font-size: .91rem; }
+
+    .project-top {
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
       gap: 10px;
-      margin-top: 16px;
     }
 
-    .skills span {
-      background: #e8eefb;
-      color: #24499b;
-      padding: 7px 13px;
-      border-radius: 6px;
-      font-size: 14px;
-    }
+    .project-link { color: #a8b8ff; font-size: .85rem; margin-top: 20px; display: inline-block; }
+    .project-link:hover { color: white; }
+
+    .contact-card { text-align: center; padding: 45px 25px; }
+    .contact-card .section-desc { margin: auto; }
+    .contact-card .actions { justify-content: center; }
 
     footer {
-      text-align: center;
-      padding: 25px;
-      color: #64748b;
-      border-top: 1px solid #e5e7eb;
-      font-size: 13px;
+      border-top: 1px solid var(--border);
+      padding: 25px 0;
+      color: var(--muted);
+      font-size: .85rem;
     }
 
-    a:focus-visible {
-      outline: 2px solid #2563eb;
-      outline-offset: 4px;
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .socials { display: flex; gap: 18px; }
+    .socials a:hover { color: white; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 760px) {
+      .nav-inner { min-height: 65px; }
+      .menu-btn { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        right: 0;
+        padding: 20px 5%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        background: #0c1021;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-links.open { display: flex; }
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 45px;
+        padding-top: 70px;
+        padding-bottom: 65px;
+      }
+      h1 { letter-spacing: -2px; }
+      .profile-wrap { width: 225px; }
+      section { padding: 65px 0; }
+      .grid { grid-template-columns: 1fr; }
+      .about-card, .card { padding: 22px; }
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <nav>
-      <strong>Soumish Biswas</strong>
-      <div>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="#home">Soumish<span>.</span></a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation"
+        aria-expanded="false" aria-controls="navLinks">☰ Menu</button>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
         <a href="#about">About</a>
-        <a href="#interests">Interests</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
-      </div>
-    </nav>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <div class="intro">
-      <div class="tag">B.TECH CSE STUDENT</div>
-      <h1>Hi, I'm Soumish Biswas.</h1>
-      <div class="subtitle">
-        Aspiring AI & Machine Learning Engineer
-      </div>
-      <p>
-        I am building my foundation in computer science
-        and programming, with a growing interest in
-        artificial intelligence and machine learning.
-      </p>
-      <a class="button"
-         href="https://github.com/soumishbiswas"
-         target="_blank" rel="noopener noreferrer">
-        Explore My GitHub
-      </a>
-    </div>
+    <section class="container hero" id="home">
+      <div class="reveal">
+        <div class="eyebrow"><span class="dot"></span> Computer Science Student</div>
+        <h1>Hi, I'm <span class="gradient">Soumish Biswas.</span></h1>
+        <p>
+          Exploring code, building ideas, and learning how technology works.
+          I'm a Computer Science student interested in software development,
+          Artificial Intelligence and Machine Learning.
+        </p>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I am a first-year Computer Science and Engineering
-        student interested in understanding how technology
-        works and how intelligent systems are built.
-      </p>
-      <p>
-        My current focus is strengthening my programming
-        fundamentals, developing problem-solving skills,
-        and exploring the foundations of AI and Machine
-        Learning. I believe in learning consistently and
-        applying knowledge through practical projects.
-      </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#projects">Explore my work ↗</a>
+          <a class="btn btn-secondary" href="#contact">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="profile-wrap reveal">
+        <div class="profile-glow"></div>
+        <div class="profile-frame">
+          <div class="profile-inner">
+            <img src="profile.jpg" alt="Portrait of Soumish Biswas"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+            <div class="avatar-fallback" style="display:none">
+              <div><strong>SB</strong><br><span>Your photo goes here</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="interests">
-      <h2>Areas of Interest</h2>
-      <p>
-        These are the areas I am interested in exploring
-        as I progress through my studies.
-      </p>
-      <div class="skills">
-        <span>Computer Science</span>
-        <span>C Programming</span>
-        <span>Artificial Intelligence</span>
-        <span>Machine Learning</span>
-        <span>Problem-Solving</span>
+    <section id="about">
+      <div class="container reveal">
+        <div class="section-head">
+          <span class="section-tag">01 / About</span>
+          <h2>A little about me.</h2>
+          <p class="section-desc">The person behind the code.</p>
+        </div>
+
+        <div class="about-card">
+          <h3>Learning today. Building for tomorrow.</h3>
+          <p>
+            I'm a first-year B.Tech Computer Science student developing my
+            programming fundamentals and exploring the world of technology.
+            I'm especially curious about AI, Machine Learning and the process
+            of turning ideas into useful software.
+          </p>
+          <p>
+            This portfolio is a place to document my progress, showcase my
+            projects and keep learning through hands-on practice.
+          </p>
+          <div class="chips">
+            <span class="chip">Computer Science</span>
+            <span class="chip">Programming</span>
+            <span class="chip">Artificial Intelligence</span>
+            <span class="chip">Machine Learning</span>
+            <span class="chip">Problem Solving</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container reveal">
+        <div class="section-head">
+          <span class="section-tag">02 / Skills</span>
+          <h2>What I'm learning.</h2>
+          <p class="section-desc">
+            My current learning areas. I'll add more as I gain experience.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="card-icon">&lt;/&gt;</div>
+            <h3>Programming</h3>
+            <p>C programming, logical thinking and fundamental programming concepts.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">⌘</div>
+            <h3>Web Development</h3>
+            <p>HTML, CSS, responsive layouts and interactive website fundamentals.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">✳</div>
+            <h3>AI & Machine Learning</h3>
+            <p>An area I'm exploring as I strengthen my mathematics and coding foundations.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container reveal">
+        <div class="section-head">
+          <span class="section-tag">03 / Projects</span>
+          <h2>Things I'm building.</h2>
+          <p class="section-desc">
+            Replace these examples with your real projects as you create them.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="project-top">
+              <div class="card-icon">🌐</div>
+              <span class="chip">Web</span>
+            </div>
+            <h3>Personal Portfolio</h3>
+            <p>A responsive personal website built with HTML, CSS and JavaScript.</p>
+            <a class="project-link" href="https://github.com/soumishbiswas"
+              target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
+          </article>
+
+          <article class="card">
+            <div class="project-top">
+              <div class="card-icon">⌨</div>
+              <span class="chip">C</span>
+            </div>
+            <h3>C Programming Practice</h3>
+            <p>A collection of practice programs and fundamental coding exercises.</p>
+            <a class="project-link" href="https://github.com/soumishbiswas"
+              target="_blank" rel="noopener noreferrer">Explore repositories ↗</a>
+          </article>
+
+          <article class="card">
+            <div class="project-top">
+              <div class="card-icon">✦</div>
+              <span class="chip">Future project</span>
+            </div>
+            <h3>AI / ML Projects</h3>
+            <p>A space for future experiments as I develop my AI and ML skills.</p>
+            <span class="project-link">Coming as I learn</span>
+          </article>
+        </div>
       </div>
     </section>
 
     <section id="contact">
-      <h2>Let's Connect</h2>
-      <p>
-        Interested in computer science, technology, or
-        learning together? Visit my GitHub profile.
-      </p>
-      <a class="button"
-         href="https://github.com/soumishbiswas"
-         target="_blank" rel="noopener noreferrer">
-        GitHub Profile
-      </a>
+      <div class="container reveal">
+        <div class="contact-card">
+          <span class="section-tag">04 / Contact</span>
+          <h2>Let's connect.</h2>
+          <p class="section-desc">
+            Interested in my learning journey or projects? Find me on GitHub.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary"
+              href="https://github.com/soumishbiswas"
+              target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a>
+            <a class="btn btn-secondary"
+              href="mailto:YOUR_EMAIL@example.com">Email me ↗</a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    © 2026 Soumish Biswas · Learning and growing in tech
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Soumish Biswas</span>
+      <div class="socials">
+        <a href="https://github.com/soumishbiswas"
+          target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a href="#home">Back to top ↑</a>
+      </div>
+    </div>
   </footer>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    if ("IntersectionObserver" in window &&
+        !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+    } else {
+      document.querySelectorAll(".reveal").forEach(el => el.classList.add("visible"));
+    }
+  </script>
 </body>
 </html>
